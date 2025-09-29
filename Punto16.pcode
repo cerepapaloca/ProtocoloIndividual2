@@ -1,0 +1,17 @@
+ValueObject CostoProducción
+    Campos:
+        - valor: Real
+        - moneda: Texto
+
+    Método Constructor(valor, moneda):
+        SI valor < 0 ENTONCES
+            Lanzar Error("El costo no puede ser negativo")
+        FIN SI
+        
+        SI moneda NO EN ["USD", "EUR", "COP"] ENTONCES
+            Lanzar Error("Moneda no válida")
+        FIN SI
+        
+        Asignar this.valor = valor
+        Asignar this.moneda = moneda
+Fin ValueObject
