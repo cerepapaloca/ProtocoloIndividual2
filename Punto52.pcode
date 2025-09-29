@@ -1,0 +1,7 @@
+TEST "CostoProduccion debe ser inmutable y validar valores positivos" 
+    GIVEN un costo = CostoProduccion(100.0, "USD")
+    WHEN intento crear otro costo con mismo valor = CostoProduccion(100.0, "USD")
+    THEN assert costo.equals(otroCosto) == true
+
+    WHEN intento crear un costo con valor negativo
+        EXPECT excepción IllegalArgumentException
