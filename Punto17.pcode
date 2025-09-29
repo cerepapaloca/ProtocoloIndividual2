@@ -1,0 +1,15 @@
+Entidad Operario
+    Campos:
+        - id: Entero (Identificador único)
+        - nombre: Texto
+        - especialización: Texto
+        - turno: Texto
+
+    Método Constructor(id, nombre, especialización):
+        Asignar this.id = id
+        Asignar this.nombre = nombre
+        Asignar this.especialización = especialización
+
+    Método AsignarTurno(nuevoTurno):
+        Asignar this.turno = nuevoTurno
+Fin Entidad
