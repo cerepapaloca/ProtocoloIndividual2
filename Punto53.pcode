@@ -1,0 +1,7 @@
+TEST "OrdenProduccion no debe permitir más cantidad real que solicitada"
+    GIVEN orden = OrdenProduccion(numero=001, producto="ProductoA", cantidadSolicitada=100)
+    WHEN orden.registrarProduccion(80)
+    THEN assert orden.cantidadReal == 80
+
+    WHEN orden.registrarProduccion(30)  // intenta superar los 100
+        EXPECT excepción InvarianteVioladaException
