@@ -1,0 +1,10 @@
+TEST "ServicioPlanificadorProduccion debe validar stock antes de iniciar producción"
+    GIVEN producto = Producto("Mesa", requiere: [Madera: 10, Tornillos: 20])
+          inventario = Inventario(Madera: 50, Tornillos: 100)
+          servicio = ServicioPlanificadorProduccion(inventario)
+
+    WHEN resultado = servicio.puedeIniciarProduccion(producto, cantidad=3)
+    THEN assert resultado == true   // requiere 30 madera y 60 tornillos, hay suficiente
+
+    WHEN resultado = servicio.puedeIniciarProduccion(producto, cantidad=10)
+    THEN assert resultado == false  // requiere 100 madera, pero hay solo 50
