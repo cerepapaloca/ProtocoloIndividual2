@@ -1,0 +1,17 @@
+Interfaz PoliticaDeCosto:
+    Método calcularCosto(producto, cantidad): Real
+
+Clase PoliticaDeCostoEstandar implementa PoliticaDeCosto:
+    Método calcularCosto(producto, cantidad):
+        Retornar producto.costoUnitario * cantidad
+
+Clase PoliticaDeCostoPremium implementa PoliticaDeCosto:
+    Método calcularCosto(producto, cantidad):
+        costoBase = producto.costoUnitario * cantidad
+        Retornar costoBase * 1.1 // 10% de recargo para productos premium
+
+// Uso en el dominio
+ServicioDominio ServicioDeCalculoDeCosto:
+    Método calcularCostoTotal(orden, politica):
+        costo = politica.calcularCosto(orden.producto, orden.cantidad)
+        Retornar costo
