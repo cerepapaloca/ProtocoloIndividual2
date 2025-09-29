@@ -1,0 +1,8 @@
+Clase OrdenDeProduccion (RA):
+    Método cambiarEstado(nuevoEstado):
+        SI (estadoActual = "pendiente" Y nuevoEstado = "en proceso") O 
+           (estadoActual = "en proceso" Y nuevoEstado = "finalizado") ENTONCES
+            estadoActual = nuevoEstado
+        SINO
+            Lanzar Excepcion "Transición de estado inválida"
+        FIN SI
