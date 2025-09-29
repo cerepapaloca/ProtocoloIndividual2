@@ -1,0 +1,12 @@
+Excepción OperarioNoCalificadoException:
+    Campos:
+        - idOperario: Entero
+        - procesoRequerido: Texto
+        - especializacionRequerida: Texto
+
+    Método Constructor(idOperario, procesoRequerido, especializacionRequerida):
+        Mensaje = "El operario " + idOperario + " no tiene la especialización " + especializacionRequerida + " requerida para el proceso " + procesoRequerido
+        Llamar super(Mensaje) // Constructor de excepción base
+        Asignar this.idOperario = idOperario
+        Asignar this.procesoRequerido = procesoRequerido
+        Asignar this.especializacionRequerida = especializacionRequerida
