@@ -1,0 +1,21 @@
+Interfaz EstrategiaCosto:
+    Método calcularCosto(producto, cantidad): real
+
+Clase EstrategiaCostoEstandar implementa EstrategiaCosto:
+    Método calcularCosto(producto, cantidad):
+        Retornar producto.obtenerCostoUnitario() * cantidad
+
+Clase EstrategiaCostoConDescuento implementa EstrategiaCosto:
+    Campo descuento: real
+
+    Método Constructor(descuento):
+        this.descuento = descuento
+
+    Método calcularCosto(producto, cantidad):
+        costoBase = producto.obtenerCostoUnitario() * cantidad
+        Retornar costoBase * (1 - this.descuento)
+
+// En un servicio de dominio
+ServicioCalculoCosto:
+    Método calcularCostoTotal(orden, estrategia):
+        Retornar estrategia.calcularCosto(orden.obtenerProducto(), orden.obtenerCantidad())
