@@ -1,0 +1,13 @@
+Clase ProductoFactory:
+    Método crearProducto(codigo, nombre, descripcion, categoria, costoUnitario, precioVenta, tiempoEstimado):
+        SI costoUnitario <= 0 ENTONCES
+            Lanzar Excepción "El costo unitario debe ser positivo"
+        FIN SI
+        SI precioVenta <= costoUnitario ENTONCES
+            Lanzar Excepción "El precio de venta debe ser mayor al costo unitario"
+        FIN SI
+        SI tiempoEstimado <= 0 ENTONCES
+            Lanzar Excepción "El tiempo estimado debe ser positivo"
+        FIN SI
+        Retornar nuevo ProductoTerminado(codigo, nombre, descripcion, categoria, costoUnitario, precioVenta, tiempoEstimado)
+Fin Clase
