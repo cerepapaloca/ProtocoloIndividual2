@@ -1,0 +1,18 @@
+ServicioDominio ServicioDeAsignacionDeOperarios:
+    Método asignarOperarioAProceso(idOperario, idProceso):
+        // Validar que el operario existe y está disponible
+        operario = repositorioOperarios.obtenerPorId(idOperario)
+        proceso = repositorioProcesos.obtenerPorId(idProceso)
+        
+        SI operario.especializacion NO INCLUYE proceso.especializacionRequerida ENTONCES
+            Lanzar Excepcion "Operario no calificado"
+        FIN SI
+        
+        SI operario.turno NO COINCIDE CON proceso.turno ENTONCES
+            Lanzar Excepcion "Operario no disponible en el turno"
+        FIN SI
+        
+        proceso.asignarOperario(operario.id)
+        repositorioProcesos.actualizar(proceso)
+        
+        Retornar verdadero
