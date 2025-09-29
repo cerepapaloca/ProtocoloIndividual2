@@ -1,0 +1,23 @@
+Clase Base EventoDeDominio:
+    Campos:
+        - idEvento: UUID (identificador único del evento)
+        - fechaOcurrencia: FechaHora
+        - version: Entero (para control de versionado)
+
+    Método Constructor():
+        Asignar this.idEvento = GenerarUUID()
+        Asignar this.fechaOcurrencia = ObtenerFechaHoraActual()
+        Asignar this.version = 1
+
+// Ejemplo de evento específico
+Clase OrdenDeProduccionIniciada hereda de EventoDeDominio:
+    Campos:
+        - idOrden: Entero
+        - producto: Texto
+        - cantidad: Entero
+
+    Método Constructor(idOrden, producto, cantidad):
+        Llamar super() // Constructor de base
+        Asignar this.idOrden = idOrden
+        Asignar this.producto = producto
+        Asignar this.cantidad = cantidad
